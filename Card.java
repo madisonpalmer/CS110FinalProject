@@ -83,7 +83,10 @@ public class Card
    
    public String stringRank()
    {
-      if (rank == 11)
+      if (rank == 1)
+         return "Ace";
+         
+      else if (rank == 11)
          return "Jack";
          
       else if (rank == 12)
@@ -91,9 +94,6 @@ public class Card
          
       else if (rank == 13)
          return "King";
-         
-      else if (rank == 1)
-         return "Ace";
       
       else
          return "invalid rank";
@@ -108,7 +108,7 @@ public class Card
    public String toString()
    {
       String s;
-      if (rank >= JACK)
+      if ((rank == ACE) || (rank >= JACK))
       {
          s = stringRank() + " of " + stringSuit();
          return s;
