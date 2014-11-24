@@ -3,10 +3,36 @@
 */
 import java.util.ArrayList;
 import java.util.Scanner;
-public class War 
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+public class War extends JFrame
 {
+   private JPanel panel;
+   private JButton battleButton;
+   
+   /**
+      Constructor
+   */
+   
+   public War()
+   {
+      //set the window title
+      setTitle("War - Card Game");
+      //specify what happens when the close button is clicked
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      setLayout(new FlowLayout());
+      battleButton = new JButton("BATTLE");
+      add(battleButton);
+      //display window
+      setVisible(true);
+   }
+   
+   
    public static void main(String[] args)
    {
+      new War();
+      
       //create new deck
       Deck1 deck = new Deck1();
       
