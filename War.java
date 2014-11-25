@@ -8,8 +8,12 @@ import java.awt.event.*;
 import java.awt.*;
 public class War extends JFrame
 {
-   private JPanel panel;
+   private final int WINDOW_WIDTH = 600;
+   private final int WINDOW_HEIGHT = 600;
+   private JPanel panel1;
    private JButton battleButton;
+   private JFrame frame;
+   //private JLabel picture;
    
    /**
       Constructor
@@ -17,27 +21,41 @@ public class War extends JFrame
    
    public War()
    {
+      setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
+      //setLayout(new BorderLayout());
       //set the window title
       setTitle("War - Card Game");
       //specify what happens when the close button is clicked
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      setLayout(new FlowLayout());
-      battleButton = new JButton("BATTLE");
-      add(battleButton);
+      JPanel outerPanel = new JPanel(new BorderLayout());
+      JPanel topPanel = new JPanel(new BorderLayout());
+      ImageIcon back = new ImageIcon("Card Pics//back.jpg");
+      ImageIcon back2 = new ImageIcon("Card Pics//back.jpg");
+      JLabel pic1 = new JLabel(back);
+      JLabel pic2 = new JLabel(back2);
+      topPanel.add(pic1, BorderLayout.BEFORE_LINE_BEGINS);
+      topPanel.add(pic2, BorderLayout.CENTER);
+      outerPanel.add(topPanel, BorderLayout.BEFORE_FIRST_LINE);
       //display window
+      //pack();
+      add(outerPanel);
       setVisible(true);
-   }
-   
-   
-   public static void main(String[] args)
-   {
-      new War();
+      
+      
+      
+      
+      
+      battleButton = new JButton("BATTLE");
+      //panel1.add(battleButton);
+      add(battleButton, BorderLayout.SOUTH);
       
       //create new deck
       Deck1 deck = new Deck1();
       
       //shuffle deck
-      deck.shuffle();
+      deck.freshDeck();
+      //JLabel picture = deck.dealCard().getPic();
+      //add(deck.dealCard().getPic());
       //System.out.println(deck.cardsRemaining());
       //System.out.println("**********************");
       
@@ -61,6 +79,12 @@ public class War extends JFrame
          }
       }
       
+      
+      // for (int index = 0; index < pile1.size(); index++)
+//       {
+//          add(pile1.get(index).getPic(), BorderLayout.EAST);
+//       }
+      
       // for (int index = 0; index < pile1.size(); index++)
 //          System.out.println(pile1.get(index));
 //          
@@ -68,7 +92,7 @@ public class War extends JFrame
 //       
 //       for (int index = 0; index < pile2.size(); index++)
 //          System.out.println(pile2.get(index));
-
+      
       Scanner keyboard = new Scanner(System.in);
       System.out.print("Do you want to battle? (y/n) ");
       String answer = keyboard.nextLine();
@@ -208,7 +232,16 @@ public class War extends JFrame
          
          
       }
-      
-      
+
    }
+   
+   
+   public static void main(String[] args)
+   {
+      new War();
+   }
+      
+            
+      
+   
 }

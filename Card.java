@@ -7,6 +7,12 @@ Card class*/
    playing card from a standard 52 card deck.
 */ 
 
+
+
+//put pics with cards!!!!!!!!!!!!!!!!!!!!!
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 public class Card
 {   
    //initialize constants
@@ -20,6 +26,8 @@ public class Card
    public final static int ACE = 1;
    private int rank; //rank of card
    private int suit; //suit of card
+   private JLabel pic;
+   private ImageIcon front,back;
  
    /**
       This constructor initializes the 
@@ -97,6 +105,328 @@ public class Card
       
       else
          return "invalid rank";
+   }
+   
+   /**
+      get pic of card
+   */
+   
+   public JLabel getPic()
+   {
+      if ((rank == 1) && (suit == 1))
+      {
+         front = new ImageIcon("Card Pics//aces.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 1) && (suit == 2))
+      {
+         front = new ImageIcon("Card Pics//acec.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 1) && (suit == 3))
+      {
+         front = new ImageIcon("Card Pics//aceh.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 1) && (suit == 4))
+      {
+         front = new ImageIcon("Card Pics//aced.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 2) && (suit == 1))
+      {
+         front = new ImageIcon("Card Pics//2s.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 2) && (suit == 2))
+      {
+         front = new ImageIcon("Card Pics//2c.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 2) && (suit == 3))
+      {
+         front = new ImageIcon("Card Pics//2h.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 2) && (suit == 4))
+      {
+         front = new ImageIcon("Card Pics//2d.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 3) && (suit == 1))
+      {
+         front = new ImageIcon("Card Pics//3s.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 3) && (suit == 2))
+      {
+         front = new ImageIcon("Card Pics//3c.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 3) && (suit == 3))
+      {
+         front = new ImageIcon("Card Pics//3h.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 3) && (suit == 4))
+      {
+         front = new ImageIcon("Card Pics//3d.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 4) && (suit == 1))
+      {
+         front = new ImageIcon("Card Pics//4s.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 4) && (suit == 2))
+      {
+         front = new ImageIcon("Card Pics//4c.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 4) && (suit == 3))
+      {
+         front = new ImageIcon("Card Pics//4h.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 4) && (suit == 4))
+      {
+         front = new ImageIcon("Card Pics//4d.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 5) && (suit == 1))
+      {
+         front = new ImageIcon("Card Pics//5s.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 5) && (suit == 2))
+      {
+         front = new ImageIcon("Card Pics//5c.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 5) && (suit == 3))
+      {
+         front = new ImageIcon("Card Pics//5h.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 5) && (suit == 4))
+      {
+         front = new ImageIcon("Card Pics//5d.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 6) && (suit == 1))
+      {
+         front = new ImageIcon("Card Pics//6s.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 6) && (suit == 2))
+      {
+         front = new ImageIcon("Card Pics//6c.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 6) && (suit == 3))
+      {
+         front = new ImageIcon("Card Pics//6h.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 6) && (suit == 4))
+      {
+         front = new ImageIcon("Card Pics//6d.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 7) && (suit == 1))
+      {
+         front = new ImageIcon("Card Pics//7s.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 7) && (suit == 2))
+      {
+         front = new ImageIcon("Card Pics//7c.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 7) && (suit == 3))
+      {
+         front = new ImageIcon("Card Pics//7h.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 7) && (suit == 4))
+      {
+         front = new ImageIcon("Card Pics//7d.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 8) && (suit == 1))
+      {
+         front = new ImageIcon("Card Pics//8s.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 8) && (suit == 2))
+      {
+         front = new ImageIcon("Card Pics//8c.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 8) && (suit == 3))
+      {
+         front = new ImageIcon("Card Pics//8h.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 8) && (suit == 4))
+      {
+         front = new ImageIcon("Card Pics//8d.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 9) && (suit == 1))
+      {
+         front = new ImageIcon("Card Pics//9s.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 9) && (suit == 2))
+      {
+         front = new ImageIcon("Card Pics//9c.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 9) && (suit == 3))
+      {
+         front = new ImageIcon("Card Pics//9h.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 9) && (suit == 4))
+      {
+         front = new ImageIcon("Card Pics//9d.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 10) && (suit == 1))
+      {
+         front = new ImageIcon("Card Pics//10s.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 10) && (suit == 2))
+      {
+         front = new ImageIcon("Card Pics//10c.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 10) && (suit == 3))
+      {
+         front = new ImageIcon("Card Pics//10h.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 10) && (suit == 4))
+      {
+         front = new ImageIcon("Card Pics//10d.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 11) && (suit == 1))
+      {
+         front = new ImageIcon("Card Pics//jacks.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 11) && (suit == 2))
+      {
+         front = new ImageIcon("Card Pics//jackc.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 11) && (suit == 3))
+      {
+         front = new ImageIcon("Card Pics//jackh.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 11) && (suit == 4))
+      {
+         front = new ImageIcon("Card Pics//jackd.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 12) && (suit == 1))
+      {
+         front = new ImageIcon("Card Pics//queens.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 12) && (suit == 2))
+      {
+         front = new ImageIcon("Card Pics//queenc.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 12) && (suit == 3))
+      {
+         front = new ImageIcon("Card Pics//queenh.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 12) && (suit == 4))
+      {
+         front = new ImageIcon("Card Pics//queend.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 13) && (suit == 1))
+      {
+         front = new ImageIcon("Card Pics//kings.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 13) && (suit == 2))
+      {
+         front = new ImageIcon("Card Pics//kingc.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 13) && (suit == 3))
+      {
+         front = new ImageIcon("Card Pics//kingh.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      else if ((rank == 13) && (suit == 4))
+      {
+         front = new ImageIcon("Card Pics//kingd.jpg");
+         // = new ImageIcon("Card Pics//back.jpg");
+         pic = new JLabel(front);
+      }
+      
+      return pic;
    }
       
    /**
