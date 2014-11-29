@@ -1,18 +1,29 @@
-/*
-   This program simulates the card game war in COMMAND WINDOW!!!!!
+/* Madison Palmer
+   CS 110
+   Final Project
+*/
+
+/**
+   This program simulates the card game war using GUI's
+   
+   @author Madison Palmer 
 */
 import java.util.ArrayList;
-import java.util.Scanner;
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
+
 public class WarGUI extends JFrame
 {
+   //initialize window size constants
    private final int WINDOW_WIDTH = 800;
    private final int WINDOW_HEIGHT = 600;
+   
    private JPanel panel1;
+   private JPanel panel2;
+   private JPanel panel3;
+   private JPanel panel4;
    private JButton battleButton;
-   private JFrame frame;
    private ArrayList<Card> pile1;
    private ArrayList<Card> pile2;
    private JLabel status;
@@ -23,7 +34,8 @@ public class WarGUI extends JFrame
    //private JLabel picture;
    
    /**
-      Constructor
+      The constructor sets up the window for the game
+      and splits a deck of cards into two equal piles.
    */
    
    public WarGUI()
@@ -32,33 +44,34 @@ public class WarGUI extends JFrame
       setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
       //set the window title
       setTitle("War - Card Game");
-      
       //specify what happens when the close button is clicked
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       
-      //display the two piles of cards
-      JPanel panel1 = new JPanel();
+      //display images of the two piles of cards
+      panel1 = new JPanel();
       panel1.setBackground(new Color(150,0,0));
       ImageIcon back = new ImageIcon("Card Pics//back.jpg");
       JLabel picture = new JLabel(back);
       panel1.add(picture);
       add(panel1, BorderLayout.EAST);
       setVisible(true);
-      JPanel panel2 = new JPanel();
+      panel2 = new JPanel();
       panel2.setBackground(new Color(150,0,0));
       ImageIcon back2 = new ImageIcon("Card Pics//back.jpg");
       JLabel picture2 = new JLabel(back2);
       panel2.add(picture2);
       add(panel2, BorderLayout.WEST);
       
-      JPanel panel3 = new JPanel();
+      //create a button to battle two cards
+      panel3 = new JPanel();
       panel3.setBackground(new Color(0,0,50));
       battleButton = new JButton("BATTLE");
       battleButton.addActionListener(new ButtonListener());
       panel3.add(battleButton);
       add(panel3, BorderLayout.SOUTH);
       
-      JPanel panel4 = new JPanel();
+      //add a label to the north region of window
+      panel4 = new JPanel();
       panel4.setBackground(new Color(0,100,0));
       //JLabel directions = new JLabel("click the button below to battle cards");
       //directions.setFont(new Font("SANS_SERIF",Font.PLAIN,20));
@@ -73,6 +86,7 @@ public class WarGUI extends JFrame
       //panel5.add(panel4, BorderLayout.BEFORE_FIRST_LINE);
       add(panel4, BorderLayout.NORTH);
       
+      //create center panel so it will be able two hold two images
       outerPanel = new JPanel(new BorderLayout());
       topPanel = new JPanel(new BorderLayout());
       topPanel.setBackground(new Color(150,0,0));
@@ -107,8 +121,6 @@ public class WarGUI extends JFrame
       pile1 = new ArrayList<Card>();
       pile2 = new ArrayList<Card>();
       
-      
-      
       for (int index = 0; index < deck.CARDS_IN_DECK; index++)
       {
          if (index % 2 == 0)
@@ -133,8 +145,8 @@ public class WarGUI extends JFrame
 //       outerPanel.add(topPanel, BorderLayout.BEFORE_FIRST_LINE);
 //       add(outerPanel);
       
-         pic1 = pile1.get(0).getPic();
-         pic2 = pile2.get(0).getPic();
+         //pic1 = pile1.get(0).getPic();
+         //pic2 = pile2.get(0).getPic();
         
    }
    
@@ -143,8 +155,9 @@ public class WarGUI extends JFrame
       
       public void actionPerformed(ActionEvent e)
       {
-         topPanel.add(pic1, BorderLayout.BEFORE_LINE_BEGINS);
-         topPanel.add(pic2, BorderLayout.CENTER);
+         //display the top cards of each pile that will battle
+         topPanel.add(pile1.get(0).getPic(), BorderLayout.BEFORE_LINE_BEGINS);
+         topPanel.add(pile2.get(0).getPic(), BorderLayout.CENTER);
          outerPanel.add(topPanel, BorderLayout.BEFORE_FIRST_LINE);
          
          

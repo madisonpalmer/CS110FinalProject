@@ -1,15 +1,14 @@
-/*Madison Palmer
-CS 110
-Card class*/
+/* Madison Palmer
+   CS 110
+   Final Project Card class*/
 
-/*
+/**
    The Card class represents a single 
    playing card from a standard 52 card deck.
+   
+   @author Madison Palmer
 */ 
 
-
-
-//put pics with cards!!!!!!!!!!!!!!!!!!!!!
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -27,7 +26,7 @@ public class Card
    private int rank; //rank of card
    private int suit; //suit of card
    private JLabel pic;
-   private ImageIcon front,back;
+   private ImageIcon front,back; //pictures of the front and back of the cards
  
    /**
       This constructor initializes the 
@@ -108,7 +107,9 @@ public class Card
    }
    
    /**
-      get pic of card
+      The getPic method returns the picture of a card
+      as a JLabel.
+      @return The picture of the card as a JLabel.
    */
    
    public JLabel getPic()
@@ -430,7 +431,7 @@ public class Card
    }
       
    /**
-      toString mehtod
+      toString method
       @return A string indicating 
               the object's suit and rank.
    */
@@ -451,9 +452,9 @@ public class Card
    }
    
    /**
-      The equals method compares two Month objects.
+      The equals method compares two Card objects.
       They are equal if they contain the same rank.
-      @param other The other month that you are comparing to.
+      @param other The other card that you are comparing to.
       @return True or False.
    */
    
@@ -462,6 +463,23 @@ public class Card
       if (rank == (otherCard.rank))
          return true;
       return false;
+   }
+   
+   /**
+      The isGreater method compares two Card objects
+      and determines which card has the higher rank.
+      @param card1 The first card to compare.
+      @param card2 The second card to compare.
+      @return True if the first card has the higher rank.
+              False if the first card does not have the higher rank.
+   */
+   
+   public boolean isGreater(Card card1, Card card2)
+   {
+      if (card1.getRank() > card2.getRank())
+         return true;
+      else
+         return false;
    }
    
 }

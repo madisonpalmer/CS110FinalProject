@@ -1,19 +1,24 @@
-/**
- * Representation of a Deck of cards.  
- * Initialized to a standard 52 card deck. 
- *
- * @author Jackie Horton
- */
+/* Madison Palmer
+   CS 110
+   Final Project Deck class
+*/
 
+/**
+   Representation of a Deck of cards.  
+   Initialized to a standard 52 card deck. 
+ 
+   @author Madison Palmer
+ */
+ 
 import java.util.Random;
 import java.util.ArrayList;
 
-public class Deck1 
+public class Deck1 extends CardPile
 {
    /** 
    *  Number of cards in standard deck {@value #CARDS_IN_DECK}
    **/
-   final int CARDS_IN_DECK = 52;
+   final static int CARDS_IN_DECK = 52;
 
    /** The collection of Cards */
    private ArrayList<Card> deck;
@@ -89,44 +94,27 @@ public class Deck1
    {
       return (deck.size() == 0);
    }
+   
+   
+   
 
    public static void main(String [] args) 
    {
       Deck1 deck = new Deck1();
-      deck.freshDeck();
-      //int i = 0;
-      while (!(deck.isEmpty()))
-         System.out.println(deck.dealCard().toString());
-         //System.out.println(i++ + " : " + deck.dealCard().toString());
-         
-         
-         
-      // System.out.println(deck.cardsRemaining());
-//       deck.freshDeck();
-//       while (!(deck.isEmpty()))
-//          System.out.println(i++ + " : " + deck.dealCard().toString());
-//          
-//       Card c1 = new Card(Card.ACE,Card.HEARTS);
-//       Card c2 = new Card(Card.JACK,Card.SPADES);
-//       Card c3 = new Card(4,Card.HEARTS);
-//       
-//       System.out.println(highCard(c1,c2,c3));
+      //deck.freshDeck();
+      deck.shuffle();
+      //deck.toString();
       
-
+      //System.out.println("*************");
+      //Card card = new Card(4,2);
+     // deck.addCard(card);
+     // deck.displayPile();
+      //Card card = new Card(4,5);
+      //deck.addCard(0);
+      //System.out.println(deck.cardsRemaining());
+      //Card card = new Card(5,4);
+      //deck.add(card);
+      //System.out.println(deck.dealCard());
+      //System.out.println(deck.cardsRemaining(deck));
    }
-   // public static Card highCard(Card...cards)
-//    {
-//    
-//       Card high = cards[0];
-//       for (int i=1;i<cards.length;i++)
-//       {
-//          if (cards[i].getRank() > high.getRank())
-//          {
-//          
-//             high = cards[i];
-//          }
-//       }
-// //       return high;
-//    
-//    }
 }
