@@ -38,43 +38,45 @@ public class WarGUI extends JFrame
       
       //display the two piles of cards
       JPanel panel1 = new JPanel();
-      panel1.setBackground(Color.red);
+      panel1.setBackground(new Color(150,0,0));
       ImageIcon back = new ImageIcon("Card Pics//back.jpg");
       JLabel picture = new JLabel(back);
       panel1.add(picture);
       add(panel1, BorderLayout.EAST);
       setVisible(true);
       JPanel panel2 = new JPanel();
-      panel2.setBackground(Color.red);
+      panel2.setBackground(new Color(150,0,0));
       ImageIcon back2 = new ImageIcon("Card Pics//back.jpg");
       JLabel picture2 = new JLabel(back2);
       panel2.add(picture2);
       add(panel2, BorderLayout.WEST);
       
       JPanel panel3 = new JPanel();
-      panel3.setBackground(Color.blue);
+      panel3.setBackground(new Color(0,0,50));
       battleButton = new JButton("BATTLE");
       battleButton.addActionListener(new ButtonListener());
       panel3.add(battleButton);
       add(panel3, BorderLayout.SOUTH);
       
       JPanel panel4 = new JPanel();
-      panel4.setBackground(Color.green);
-      JLabel title = new JLabel("War");
-      title.setFont(new Font("HELVETICA",Font.ITALIC,36));
-      panel4.add(title);
+      panel4.setBackground(new Color(0,100,0));
+      //JLabel directions = new JLabel("click the button below to battle cards");
+      //directions.setFont(new Font("SANS_SERIF",Font.PLAIN,20));
+      status = new JLabel("YOU JUST ENTERED THE BATTLEFIELD");
+      status.setFont(new Font("SANS_SERIF",Font.BOLD,36));
+      //panel4.add(directions, BorderLayout.NORTH);
+      panel4.add(status, BorderLayout.BEFORE_LINE_BEGINS);
+      //add(panel4, BorderLayout.NORTH);
+      //JPanel panel5 = new JPanel();
+      //panel5.setBackground(Color.green);
+      
+      //panel5.add(panel4, BorderLayout.BEFORE_FIRST_LINE);
       add(panel4, BorderLayout.NORTH);
-      JPanel panel5 = new JPanel();
-      panel5.setBackground(Color.green);
-      status = new JLabel("Game in Progress");
-      status.setFont(new Font("HELVETICA",Font.ITALIC,36));
-      panel5.add(status);
-      add(panel5, BorderLayout.NORTH);
       
       outerPanel = new JPanel(new BorderLayout());
       topPanel = new JPanel(new BorderLayout());
-      topPanel.setBackground(Color.red);
-      outerPanel.setBackground(Color.red);
+      topPanel.setBackground(new Color(150,0,0));
+      outerPanel.setBackground(new Color(150,0,0));
       add(topPanel);
       add(outerPanel);
       
@@ -186,6 +188,51 @@ public class WarGUI extends JFrame
          else if (pile1.get(0).getRank() == pile2.get(0).getRank())
          {
             status.setText("WAR!");
+            boolean war = true;
+            
+            if (war = true)
+            {
+               
+               Card card1 = pile1.remove(0);
+               //System.out.println("Card 1 to battle: " + pile1.get(0).toString());
+               Card card2 = pile2.remove(0);
+               //System.out.println("Card 2 to battle: " + pile2.get(0).toString());
+               
+               if (pile1.get(0).getRank() > pile2.get(0).getRank())
+               {
+                  status.setText("Pile 1 wins");
+                  Card card3 = pile1.remove(0);
+                  Card card4 = pile2.remove(0);
+                  
+                  pile1.add(card1);
+                  pile1.add(card2);
+                  pile1.add(card3);
+                  pile1.add(card4);
+  
+               }
+               
+               else if (pile2.get(0).getRank() > pile1.get(0).getRank())
+               {
+                  status.setText("Pile 2 wins");
+                  Card card3 = pile2.remove(0);
+                  Card card4 = pile1.remove(0);
+                  
+                  pile2.add(card1);
+                  pile2.add(card2);
+                  pile2.add(card3);
+                  pile2.add(card4);
+                  
+               }
+               
+               else if (pile1.get(0).getRank() == pile2.get(0).getRank())
+               {
+                  status.setText("WAR!");
+                  war = true;
+               }
+              
+            }
+               
+            
             //JPanel panel7 = new JPanel(new BorderLayout());
             //JLabel winner = new JLabel("WAR");
             //panel7.add(winner);
