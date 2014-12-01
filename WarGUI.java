@@ -16,7 +16,7 @@ import java.awt.*;
 public class WarGUI extends JFrame
 {
    //initialize window size constants
-   private final int WINDOW_WIDTH = 800;
+   private final int WINDOW_WIDTH = 1000;
    private final int WINDOW_HEIGHT = 600;
    
    private JPanel panel1;
@@ -39,6 +39,9 @@ public class WarGUI extends JFrame
    private JLabel pic2;
    private JLabel picture;
    private JLabel picture2;
+   private JLabel warStatus;
+   private ImageIcon cardPic;
+   private ImageIcon cardPic2;
    private ImageIcon back;
    private ImageIcon back2;
    //private JLabel picture;
@@ -63,8 +66,8 @@ public class WarGUI extends JFrame
       panel1.setLayout(new GridLayout(2,1));
       player1 = new JLabel("Warrior 1", JLabel.CENTER);
       player1.setFont(new Font("SANS_SERIF",Font.BOLD,30));
-      back = new ImageIcon("Card Pics//back.jpg");
-      picture = new JLabel(back);
+      cardPic = new ImageIcon("Card Pics//back.jpg");
+      picture = new JLabel(cardPic);
       panel1.add(player1);
       panel1.add(picture);
       add(panel1, BorderLayout.WEST);
@@ -76,8 +79,8 @@ public class WarGUI extends JFrame
       player2 = new JLabel("Warrior 2", JLabel.CENTER);
       player2.setFont(new Font("SANS_SERIF",Font.BOLD,30));
       panel2.add(player2);
-      back2 = new ImageIcon("Card Pics//back.jpg");
-      picture2 = new JLabel(back);
+      cardPic2 = new ImageIcon("Card Pics//back.jpg");
+      picture2 = new JLabel(cardPic2);
       panel2.add(picture2);
       
       add(panel2, BorderLayout.EAST);
@@ -108,51 +111,19 @@ public class WarGUI extends JFrame
       //create center panel 
       panel5 = new JPanel();
       panel5.setBackground(new Color (150,0,0));
-      panel5.setLayout(new GridLayout(3,1));
-      add(panel5, BorderLayout.CENTER);
-      
+      panel5.setLayout(new GridLayout(2,1));
+      warStatus = new JLabel("", JLabel.CENTER);
+      warStatus.setFont(new Font("SANS_SERIF",Font.PLAIN,20));
+      panel5.add(warStatus);
       panel6 = new JPanel();
       panel6.setBackground(new Color (150,0,0));
-      panel6.setLayout(new FlowLayout());
-      add(panel6);
       
-      panel7 = new JPanel();
-      panel7.setBackground(new Color (150,0,0));
-      panel7.setLayout(new FlowLayout());
-      add(panel7);
-      
-      panel8 = new JPanel();
-      panel8.setBackground(new Color (150,0,0));
-      panel8.setLayout(new FlowLayout());
-      add(panel8);
-      
-      
-      
-     
-      // int i = 1;
-//       int j = 6;
-//       panel5 = new JPanel[i][j]; 
-//       setBackground(new Color(150,0,0));
-//       setLayout(new GridLayout(i,j));
-// 
-//       // for(int m = 0; m < i; m++) 
-//       {
-//          for(int n = 0; n < j; n++) 
-//          {
-//             panel5[m][n] = new JPanel();
-//             add(panel5[m][n]);
-//          }
-//       }
-      
-   
-      
-      //topPanel.add(pile1.get(0).getPic(), BorderLayout.BEFORE_LINE_BEGINS);
-      //topPanel.add(pile2.get(0).getPic(), BorderLayout.CENTER);
-      //outerPanel.add(topPanel, BorderLayout.BEFORE_FIRST_LINE);
-      
-      
+       panel6.setLayout(new FlowLayout());
+       panel5.add(panel6);
 
-
+      add(panel5, BorderLayout.CENTER);
+      
+  
       setVisible(true);
       
 
@@ -161,13 +132,7 @@ public class WarGUI extends JFrame
       
       //shuffle deck
       deck.shuffle();
-      //JLabel picture = deck.dealCard().getPic();
-      //add(deck.dealCard().getPic());
-      //System.out.println(deck.cardsRemaining());
-      //System.out.println("**********************");
       
-      // while (!(deck.isEmpty()))
-//          System.out.println(deck.dealCard().toString());
       
       //split deck in half
       pile1 = new ArrayList<Card>();
@@ -184,11 +149,13 @@ public class WarGUI extends JFrame
             pile2.add(deck.dealCard());
          }
       }
+
       
       
       
-      pic1 = pile1.get(0).getPic();
-      pic2 = pile2.get(0).getPic();
+      
+      cardPic = pile1.get(0).getImageIcon();
+      cardPic2 = pile2.get(0).getImageIcon();
         
    }
    
@@ -205,13 +172,25 @@ public class WarGUI extends JFrame
          // topPanel.add(pile1.get(0).getPic(), BorderLayout.BEFORE_LINE_BEGINS);
 //          topPanel.add(pile2.get(0).getPic(), BorderLayout.CENTER);
 //          outerPanel.add(topPanel, BorderLayout.BEFORE_FIRST_LINE);
-         panel5.removeAll();
+         //panel6.removeAll();
+         //panel5.removeAll();
+         //warStatus.setText("");
          
          if (pile1.get(0).getRank() > pile2.get(0).getRank())
          {
-            panel6.add(pic1);
-            panel6.add(pic2);
+            //panel6.add(pic1);
+            //panel6.add(pic2);
+            // JLabel text = new JLabel("panel7");
+//             panel7.add(text);
+//             panel8.add(text);
+            warStatus.setText("");
+           
+            panel6.removeAll();
+            //back.setIcon(null);
+            //back2.setIcon(null);
             
+            picture.setIcon(cardPic);
+            picture2.setIcon(cardPic2);
             status.setText("Warrior 1 wins");
             
             Card card1 = pile1.remove(0);
@@ -219,15 +198,25 @@ public class WarGUI extends JFrame
             pile1.add(card1);
             pile1.add(card2);
             
-            pic1 = pile1.get(0).getPic();
-            pic2 = pile2.get(0).getPic();
+            
+            cardPic = pile1.get(0).getImageIcon();
+            cardPic2 = pile2.get(0).getImageIcon();
                                   
          }
          else if (pile1.get(0).getRank() < pile2.get(0).getRank())
          {
-            panel6.add(pic1);
-            panel6.add(pic2);
+            //panel6.add(pic1);
+            //panel6.add(pic2);
+            // JLabel text = new JLabel("panel7");
+//             panel7.add(text);
+//             panel8.add(text);
+
+            warStatus.setText("");
+            panel6.removeAll();
             
+            
+            picture.setIcon(cardPic);
+            picture2.setIcon(cardPic2);
             status.setText("Warrior 2 wins");
             
             Card card1 = pile1.remove(0);
@@ -235,17 +224,29 @@ public class WarGUI extends JFrame
             pile2.add(card1);
             pile2.add(card2); 
             
-            pic1 = pile1.get(0).getPic();
-            pic2 = pile2.get(0).getPic(); 
+            
+            cardPic = pile1.get(0).getImageIcon();
+            cardPic2 = pile2.get(0).getImageIcon(); 
                  
          }
          else if (pile1.get(0).getRank() == pile2.get(0).getRank())
          {
+            picture.setIcon(cardPic);
+            picture2.setIcon(cardPic2);
+            warStatus.setText("There is a war");
+            //warStatus.setFont(new Font("SANS_SERIF",Font.BOLD,30));
+            //panel5.add(warStatus);
+            back = new ImageIcon("Card Pics//back.jpg");
+            pic1 = new JLabel(back);
+            back2 = new ImageIcon("Card Pics//back.jpg");
+            pic2 = new JLabel(back2);
             panel6.add(pic1);
+            panel6.add(pile1.get(2).getPic());
+            panel6.add(pile2.get(2).getPic());
             panel6.add(pic2);
             
-            panel7.add(picture);
-            panel7.add(picture2);
+            //panel7.add(picture);
+            //panel7.add(picture2);
             
             
             
@@ -257,45 +258,65 @@ public class WarGUI extends JFrame
             
             if (war = true)
             {
-               //put down one card from pile 1
-               Card card1 = pile1.remove(0);
-               //put down one card from pile 2
-               Card card2 = pile2.remove(0);
+               
                               
-               if (pile1.get(0).getRank() > pile2.get(0).getRank())
+               if (pile1.get(2).getRank() > pile2.get(2).getRank())
                {
-                  status.setText("Warrior 1 wins");
-                  Card card3 = pile1.remove(0);
-                  Card card4 = pile2.remove(0);
+                  status.setText("WAR! Warrior 1 wins");
+                  Card card1 = pile1.remove(2);
+                  Card card2 = pile2.remove(2);
+                  //put down one card from pile 1
+                  Card card3 = pile1.remove(1);
+                  //put down one card from pile 2
+                  Card card4 = pile2.remove(1);
+                  Card card5 = pile1.remove(0);
+                  Card card6 = pile2.remove(0);
                   
                   pile1.add(card1);
                   pile1.add(card2);
                   pile1.add(card3);
                   pile1.add(card4);
+                  pile1.add(card5);
+                  pile1.add(card6);
+                  
+                  //war = false;
   
                }
                
-               else if (pile2.get(0).getRank() > pile1.get(0).getRank())
+               else if (pile2.get(2).getRank() > pile1.get(2).getRank())
                {
-                  status.setText("Pile 2 wins");
-                  Card card3 = pile2.remove(0);
-                  Card card4 = pile1.remove(0);
+                  status.setText("WAR! Warrior 2 wins");
+                  Card card1 = pile1.remove(2);
+                  Card card2 = pile2.remove(2);
+                  //put down one card from pile 1
+                  Card card3 = pile1.remove(1);
+                  //put down one card from pile 2
+                  Card card4 = pile2.remove(1);
+                  Card card5 = pile1.remove(0);
+                  Card card6 = pile2.remove(0);
+                  
                   
                   pile2.add(card1);
                   pile2.add(card2);
                   pile2.add(card3);
                   pile2.add(card4);
+                  pile1.add(card5);
+                  pile1.add(card6);
+                  
+                  //war = false;
                   
                }
                
                else if (pile1.get(0).getRank() == pile2.get(0).getRank())
                {
-                  status.setText("WAR!");
+                  status.setText("WAR UPON WAR!");
+                  warStatus.setText("");
+                  panel6.removeAll();
                   war = true;
                }
-              
-            }
                
+            }
+                           
             
          }  
          //setVisible(false);
