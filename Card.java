@@ -14,19 +14,31 @@ import java.awt.*;
 import java.awt.event.*;
 public class Card
 {   
-   //initialize constants
+   /** The number associated with the suit Spades */
    public final static int SPADES = 1;
+   /** The number associated with the suit Clubs */
    public final static int CLUBS = 2;
+   /** The number associated with the suit Hearts */
    public final static int HEARTS = 3;
+   /** The number associated with the suit Diamonds */
    public final static int DIAMONDS = 4;
+   /** The rank associated with Jack */
    public final static int JACK = 11;
+   /** The rank associated with Queen */
    public final static int QUEEN = 12;
+   /** The rank associated with King */
    public final static int KING = 13;
+   /** The rank associated with Ace */
    public final static int ACE = 1;
-   private int rank; //rank of card
-   private int suit; //suit of card
+   /** The rank of the card */
+   private int rank; 
+   /** The suit of the card */
+   private int suit; 
+   
+   /* The picture of a card as a JLabel */
    private JLabel pic;
-   private ImageIcon front,back; //pictures of the front and back of the cards
+   /** The ImageIcon of a card */
+   private ImageIcon front,back; 
  
    /**
       This constructor initializes the 
@@ -109,7 +121,7 @@ public class Card
   /**
       The getImageIcon method returns the picture of a card
       as an ImageIcon.
-      @return The picture of the card as a JLabel.
+      @return The picture of the card as an ImageIcon.
    */
    
    public ImageIcon getImageIcon()

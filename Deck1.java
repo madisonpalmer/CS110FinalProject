@@ -4,7 +4,8 @@
 */
 
 /**
-   Representation of a Deck of cards.  
+   The Deck1 class extends the CardPile class and
+   represents a deck of cards.  
    Initialized to a standard 52 card deck. 
  
    @author Madison Palmer
@@ -12,11 +13,10 @@
  
 import java.util.Random;
 import java.util.ArrayList;
-
 public class Deck1 extends CardPile
 {
    /** 
-   *  Number of cards in standard deck {@value #CARDS_IN_DECK}
+      Number of cards in standard deck {@value #CARDS_IN_DECK}
    **/
    final static int CARDS_IN_DECK = 52;
 
@@ -24,21 +24,24 @@ public class Deck1 extends CardPile
    private ArrayList<Card> deck;
    
    /**
-    * Constructs a regular 52-card deck.  Initially, the cards
-    * are in a sorted order.  The shuffle() method can be called to
-    * randomize the order.  
-    */
+     This constructor constructs a regular 52-card deck.  
+     Initially, the cards are in a sorted order.    
+   */
+    
    public Deck1()
    {
       freshDeck();
    }
+   
    /**
-    * Create a new collection of 52 cards, in sorted order
-    */
+      The freshDeck method creates a new 
+      collection of 52 cards, in sorted order.
+   */
+    
    public void freshDeck()
    {
       deck = new ArrayList<Card>();
-      //System.out.println(deck.size());
+      
 
       for (int r = Card.ACE; r<=Card.KING;r++)
       {
@@ -50,27 +53,32 @@ public class Deck1 extends CardPile
      
    
    }
+   
    /** 
-     * Remove and return the top Card on the Deck
-     * @return A reference to a Card that was top on the Deck
-     */
+      The dealCard method removes and returns the top Card on the Deck.
+      @return A reference to a Card that was top on the Deck.
+   */
+   
    public Card dealCard()
    {
       Card c = deck.remove(0);  //  remove it (returns removed object)
       return c;
    }
+   
    /** 
-     * Return current number of Cards in Deck
-     * @return number of Cards in Deck
-     */
+     The cardsRemaining method returns the 
+     current number of Cards in Deck.
+     @return number of Cards in Deck
+   */
 
    public int cardsRemaining()
    {  
       return deck.size();
    }
+   
    /** 
-     * Randomize the order of Cards in Deck
-     */
+     The shuffle method randomizes the order of Cards in Deck.
+   */
 
    public void shuffle()
    {
@@ -85,36 +93,26 @@ public class Deck1 extends CardPile
          deck.set(randNum,temp);
       }      
    }
+   
    /** 
-     * Determine if Deck is empty
-     * @return true if there are no more cards, false otherwise
-     */
+     The isEmpty method determines if Deck is empty.
+     @return true if there are no more cards, false otherwise.
+   */
    
    public boolean isEmpty()
    {
       return (deck.size() == 0);
    }
    
+   /**
+      The displayDeck method displays all cards 
+      in the deck in the command window.
+   */
    
-   
-
-   public static void main(String [] args) 
+   public void displayDeck()
    {
-      Deck1 deck = new Deck1();
-      //deck.freshDeck();
-      deck.shuffle();
-      //deck.toString();
-      
-      //System.out.println("*************");
-      //Card card = new Card(4,2);
-     // deck.addCard(card);
-     // deck.displayPile();
-      //Card card = new Card(4,5);
-      //deck.addCard(0);
-      //System.out.println(deck.cardsRemaining());
-      //Card card = new Card(5,4);
-      //deck.add(card);
-      //System.out.println(deck.dealCard());
-      //System.out.println(deck.cardsRemaining(deck));
+      for (int index = 0; index < deck.size(); index++)
+         System.out.println(deck.get(index));
    }
+   
 }
