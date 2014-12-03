@@ -1,7 +1,10 @@
 /* Madison Palmer
    CS 110
-   Final Project
+   Final Project CardPile class
 */
+
+//import
+import java.util.ArrayList;
 
 /**
    The CardPile class represents a pile of cards.
@@ -9,11 +12,9 @@
    @author Madison Palmer
 */
 
-import java.util.ArrayList;
-import java.util.Random;
 public class CardPile 
 {
-   /** The pile of cards */
+   /** The pile of cards. */
    private ArrayList<Card> cardPile;
    
    /**

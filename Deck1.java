@@ -3,29 +3,30 @@
    Final Project Deck class
 */
 
-/**
-   The Deck1 class extends the CardPile class and
-   represents a deck of cards.  
-   Initialized to a standard 52 card deck. 
- 
-   @author Madison Palmer
- */
- 
+//import
 import java.util.Random;
 import java.util.ArrayList;
+
+/**
+   The Deck1 class extends the CardPile class. It
+   represents a deck of cards initialized to a standard 52 card deck. 
+ 
+   @author Madison Palmer
+*/
+ 
 public class Deck1 extends CardPile
 {
    /** 
-      Number of cards in standard deck {@value #CARDS_IN_DECK}
+      Number of cards in standard deck. {@value #CARDS_IN_DECK}
    **/
    final static int CARDS_IN_DECK = 52;
 
-   /** The collection of Cards */
+   /** The collection of Cards. */
    private ArrayList<Card> deck;
    
    /**
-     This constructor constructs a regular 52-card deck.  
-     Initially, the cards are in a sorted order.    
+     This constructor constructs a standard 
+     52-card deck in a sorted order.    
    */
     
    public Deck1()
@@ -68,7 +69,7 @@ public class Deck1 extends CardPile
    /** 
      The cardsRemaining method returns the 
      current number of Cards in Deck.
-     @return number of Cards in Deck
+     @return The number of Cards in the Deck.
    */
 
    public int cardsRemaining()
